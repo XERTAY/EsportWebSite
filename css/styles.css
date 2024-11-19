@@ -1,0 +1,677 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Montserrat&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Audiowide', sans-serif;
+    color: #ffffff;
+    background-color: #000000;
+    line-height: 1.5;
+    font-size: 1rem; /* 16px équivaut à 1rem */
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, p, a, .btn, .header, .nav, .tournoi-section, .footer {
+    font-family: 'Audiowide', sans-serif;
+}
+
+/* Styles pour l'en-tête */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #121212;
+    height: 8vh;
+    position: relative;
+    z-index: 1000;
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 3rem;
+    width: auto;
+}
+
+.logo span {
+    font-size: 1.25rem; /* 20px */
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.nav ul {
+    display: flex;
+    gap: 2rem; /* Espacement entre les liens */
+    list-style: none;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: #e94560;
+}
+
+/* Menu burger */
+.menu-checkbox {
+    display: none; /* Cache la case à cocher */
+}
+
+.open-menu {
+    display: none; /* Masqué par défaut (desktop) */
+    font-size: 1.5rem;
+    color: #ffffff;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 1001;
+}
+
+/* Fermer le menu */
+.close-menu {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    font-size: 1.5rem;
+    color: #ffffff;
+    cursor: pointer;
+    transform: translateY(-50%);
+    z-index: 1001;
+}
+
+/* Menu déroulant */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #333;
+    min-width: 200px;
+    z-index: 2;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+
+.dropdown-content p {
+    margin: 5px 0;
+    color: #fff;
+}
+
+.dropdown-content a {
+    color: #e94560;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    text-decoration: underline;
+}
+
+/* Afficher le menu au survol du "Contact" */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropbtn:hover {
+    background-color: #444;
+}
+
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 92vh;
+    overflow: hidden;
+}
+
+.trapezoid {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #e94560;
+    width: 20vw;
+    height: 5vh;
+    border-radius: 1rem;
+    clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #e94560;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 50px;
+    opacity: 0;
+    transition: opacity 0.3s, background-color 0.3s;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.back-to-top:hover {
+    background-color: #555;
+}
+
+.back-to-top.show {
+    opacity: 1;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 1;
+    color: #ffffff;
+    text-align: center;
+    padding-top: 10vh;
+}
+
+.hero-text h1 {
+    font-family: 'Audiowide', sans-serif;
+    font-size: clamp(4rem, 5vw, 8vh); /* Taille responsive avec limites */
+    font-weight: bold;
+    color: #ffffff;
+    text-align: left;
+    width: 75%;
+    margin-left: 5%;
+    margin-top: 5vh;
+    max-width: 50vw;
+}
+
+.hero-text .buttons {
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+    font-size: clamp(1rem, 2vw, 3vh); /* Taille adaptative */
+}
+
+/* Intro Section */
+.intro-text {
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+    padding: 2vh 2vw;
+}
+
+.btn {
+    background-color: #e94560;
+    color: #ffffff;
+    padding: 1.5vh 2vw;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s, transform 0.3s ease;
+    display: inline-block;
+    margin: 2vh 0;
+    width: auto;
+    text-align: center;
+    font-size: clamp(1rem, 1.5vw, 1.5rem); /* Taille adaptative */
+}
+
+.btn:hover {
+    background-color: #d42a4e;
+    transform: scale(1.05);
+}
+
+.btn.secondary {
+    background-color: #292929;
+}
+
+.btn.secondary:hover {
+    background-color: #3a3a3a;
+}
+
+/* Footer */
+.footer {
+    padding: 2vh 2vw;
+    text-align: center;
+    background-color: #121212;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+}
+
+.icon {
+    width: 4vh;
+    height: 4vh;
+    transition: transform 0.3s, filter 0.3s ease;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+/* Programme Intro Section */
+.programme-intro {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 15vh 2vw 15vh;
+    background-color: #121212;
+}
+
+.intro-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap; /* Permet le basculement des éléments si nécessaire */
+}
+
+.intro-image {
+    flex: 0 0 clamp(25%, 30%, 35%); /* Taille adaptative pour tablettes et desktop */
+    padding-right: 5vw;
+}
+
+.intro-text {
+    color: #ffffff;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+}
+
+.intro-text p {
+    line-height: 1.5;
+    font-size: 2vh;
+}
+
+.intro-image img {
+    max-width: 100%; /* Assure que l'image ne dépasse jamais le conteneur */
+    width: 100%; /* Utilise toute la largeur disponible */
+    height: auto; /* Respecte le ratio original */
+    border-radius: 1rem; /* Coins arrondis */
+    object-fit: cover; /* Remplit l'image sans distorsion */
+    margin-left: 0; /* Retire la marge gauche sur petits écrans */
+}
+
+
+.intro-title {
+    font-family: 'Audiowide', sans-serif;
+    font-size: clamp(2rem, 3vw, 4vh); /* Taille adaptative pour toutes les résolutions */
+    color: #e94560;
+    margin-bottom: 5vh;
+    text-align: center;
+}
+
+.intro-description {
+    font-size: clamp(1.2rem, 1.5vw, 1.8vh); /* Taille adaptative */
+    color: #ffffff;
+    margin-bottom: 3vh;
+    text-align: center;
+    max-width: 80%; /* Limite la largeur sur téléphones */
+    line-height: 1.8;
+    word-wrap: break-word; /* Gère les mots longs */
+}
+
+.separator {
+    background: linear-gradient(to right, #e94560, #ffffff);
+    background-color: #121212;
+    margin: 0 auto;
+    width: 80%;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+/* Game Posters */
+.game-posters {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Force tous les posters à avoir la même hauteur */
+    gap: 5vw;
+    padding: 10vh 2vw;
+    background-color: #121212;
+}
+
+.poster {
+    position: relative;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2vh 2vw;
+    background-color: #1a1a1d;
+    border-radius: 1rem;
+    box-shadow: 0 0.5vh 1.5vh rgba(233, 69, 96, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s ease;
+}
+
+.poster:hover {
+    transform: translateY(-1vh);
+    box-shadow: 0 1.5vh 3vh rgba(233, 69, 96, 0.7);
+}
+
+.poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+}
+
+.poster .game-description {
+    flex-grow: 1;
+    font-style: italic;
+    color: #ffffff;
+    font-size: 2vh;
+    margin: 2vh auto 1vh;
+    max-width: 100%;
+    line-height: 1.5;
+    overflow-wrap: break-word; /* Casse les mots longs si nécessaire */
+}
+
+.poster .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(0.8rem, 0.5rem + 0.2vw, 1.5rem); /* Taille adaptative avec limites */
+    padding: 0 1rem;
+    width: auto; /* Ajustement automatique selon le contenu */
+    height: calc(6vh + 10px); /* Hauteur uniforme calculée */
+    background-color: #e94560;
+    color: #fff;
+    border-radius: 0.5rem;
+    text-align: center;
+    white-space: normal; /* Permet les retours à la ligne */
+    line-height: 1.2;
+    transition: background-color 0.3s;
+}
+
+.poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+}
+
+.game-description {
+    font-style: italic;
+    font-size: 2vh;
+    color: #ffffff;
+    margin-top: 2vh;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+    margin-bottom: 1vh;
+    flex: 1;
+}
+
+
+.poster:hover {
+    transform: translateY(-1vh);
+    box-shadow: 0 1.5vh 3vh rgba(233, 69, 96, 0.7);
+}
+
+/* Responsive Styles */
+
+@keyframes fadeIn {
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Téléphones */
+@media (max-width: 576px) {
+
+    .nav ul {
+        position: fixed;
+        top: 8vh; /* En dessous du header */
+        right: -100%; /* Côté droit, hors écran */
+        width: 70%;
+        height: calc(100vh - 8vh); /* Hauteur restante après le header */
+        background-color: #121212;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        transition: right 0.3s ease-in-out;
+    }
+
+    /* Afficher le menu burger lorsque la case est cochée */
+    .menu-checkbox:checked ~ .nav ul {
+        right: 0; /* Fait glisser le menu dans la vue */
+    }
+
+    /* Afficher le bouton "close" quand le menu est ouvert */
+    .menu-checkbox:checked ~ .close-menu {
+        display: block;
+    }
+
+    /* Masquer le bouton "burger" quand le menu est ouvert */
+    .menu-checkbox:checked ~ .open-menu {
+        display: none;
+    }
+
+    /* Afficher le menu burger sur mobile */
+    .open-menu {
+        display: block;
+    }
+
+    /* Cacher la navigation classique sur mobile */
+    .nav ul {
+        display: flex;
+    }
+
+    .hero-text h1 {
+        font-size: clamp(2rem, 5vw, 4rem);
+        width: 90%; /* Plus de largeur pour le texte */
+        margin-left: 5%;
+    }
+
+    .hero-text .buttons {
+        flex-direction: column; /* Boutons empilés */
+        gap: 1vh;
+    }
+
+    .trapezoid {
+        width: 50%;
+        height: 5vh;
+    }
+
+    .buttons {
+        padding: 5%;
+    }
+
+
+    .programme-intro {
+        padding: 10vh 2vw; /* Réduction du padding pour petits écrans */
+        flex-direction: column;
+    }
+
+    .intro-content {
+        flex-direction: column; /* Place l'image en dessous du texte */
+    }
+
+    .intro-image {
+        flex: 0 0 100%; /* L'image occupe toute la largeur */
+        padding-right: 0;
+        margin-top: 2vh;
+    }
+
+    .intro-image img {
+        max-width: 100%; /* L'image ne dépasse jamais la largeur de l'écran */
+        width: 100%; /* Utilise toute la largeur disponible */
+        margin-left: 0; /* Supprime la marge gauche */
+        border-radius: 1rem; /* Maintient les coins arrondis */
+    }
+
+    .intro-text {
+        align-items: center; /* Centre le texte */
+        text-align: center;
+    }
+
+    .intro-description {
+        font-size: 1.5vh; /* Texte légèrement réduit */
+        max-width: 90%; /* Augmente la largeur du texte */
+    }
+
+    .game-posters {
+        flex-direction: column;
+        gap: calc(2vh + 10px); /* Espacement entre les posters */
+        padding: 2vh 2vw;
+    }
+
+    .poster {
+        width: 100%;
+    }
+
+    .poster .game-description {
+        font-size: calc(1rem + 0.5vw);
+    }
+
+}
+
+/* Tablettes */
+@media (min-width: 577px) and (max-width: 799px) {
+
+    .nav ul {
+        position: fixed;
+        top: 8vh; /* En dessous du header */
+        right: -100%; /* Côté droit, hors écran */
+        width: 70%;
+        height: calc(100vh - 8vh); /* Hauteur restante après le header */
+        background-color: #121212;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        transition: right 0.3s ease-in-out;
+    }
+
+    /* Afficher le menu burger lorsque la case est cochée */
+    .menu-checkbox:checked ~ .nav ul {
+        right: 0; /* Fait glisser le menu dans la vue */
+    }
+
+    /* Afficher le bouton "close" quand le menu est ouvert */
+    .menu-checkbox:checked ~ .close-menu {
+        display: block;
+    }
+
+    /* Masquer le bouton "burger" quand le menu est ouvert */
+    .menu-checkbox:checked ~ .open-menu {
+        display: none;
+    }
+
+    /* Afficher le menu burger sur mobile */
+    .open-menu {
+        display: block;
+    }
+
+    /* Cacher la navigation classique sur mobile */
+    .nav ul {
+        display: flex;
+    }
+
+    .hero-text h1 {
+        font-size: clamp(3rem, 6vw, 5rem);
+        width: 80%;
+    }
+
+    .game-posters {
+        justify-content: space-between;
+        gap: calc(2vh + 10px);
+    }
+
+    .poster {
+        width: calc(50% - 2vw);
+    }
+
+    .poster .game-description {
+        font-size: min(0.8rem, 3vw);
+    }
+}
+
+/* PC portables */
+@media (min-width: 800px) and (max-width: 1024px) {
+    .game-posters {
+        justify-content: space-between;
+        gap: calc(2vh + 10px);
+    }
+
+    .poster {
+        width: calc(33.33% - 2vw);
+    }
+
+    .poster .game-description {
+        font-size: min(0.7rem, 2.5vw);
+    }
+}
+
+/* PC fixes */
+@media (min-width: 1025px) {
+    .game-posters {
+        justify-content: space-between;
+        gap: calc(1vw); /* Réduction de l'espacement entre les posters */
+    }
+
+    .poster {
+        width: calc(30% - 1vw); /* Réduction légère pour inclure plus d'espace disponible */
+    }
+
+    .poster .game-description {
+        font-size: min(0.8rem, 3vw);
+    }
+}
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+body {
+    font-family: 'Audiowide', sans-serif;
+}
